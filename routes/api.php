@@ -21,7 +21,10 @@ Route::post('/admin/login', [AuthController::class,'authenticate']);
 // })->middleware('auth:sanctum');
 
 
-
+// API hiển thị users
+Route::get('/users', function () {
+    return User::all();
+});
 Route::get('/add-user', function () {
 
     User::create([
