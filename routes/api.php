@@ -21,9 +21,17 @@ Route::post('/admin/login', [AuthController::class,'authenticate']);
 // })->middleware('auth:sanctum');
 
 
-Route::get('/users', function () {
-    return User::all();
-    });
+
+Route::get('/add-user', function () {
+
+    User::create([
+        'name' => 'Admin',
+        'email' => 'admin@gmail.com',
+        'password' => bcrypt('123456')
+    ]);
+
+    return "User created";
+});
 
 
 
