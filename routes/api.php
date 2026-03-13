@@ -10,6 +10,10 @@ use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Models\User;
+
+
 Route::post('/admin/login', [AuthController::class,'authenticate']);
 
 // Route::get('/user', function (Request $request) {
@@ -28,4 +32,8 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('sizes', [SizeController::class,'index']);
     Route::resource('products', ProductController::class);
     Route::post('temp-images', [TempImageController::class,'store']);
+
+    Route::get('/users', function () {
+    return User::all();
+});
 });
