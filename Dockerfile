@@ -16,4 +16,8 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Tạo key cho Laravel (tránh lỗi nếu chưa có)
+RUN php artisan key:generate || true
+
+# Command khi container chạy
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT
