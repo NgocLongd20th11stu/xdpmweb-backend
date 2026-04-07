@@ -48,4 +48,6 @@ class TempImageController extends Controller
             'data' => $tempImage
         ],200);
     }
+
+    
 }
