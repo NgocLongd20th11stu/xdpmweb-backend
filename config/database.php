@@ -95,6 +95,9 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('DB_SSLMODE', 'prefer'),
+            'options' => [
+            1014 => 2, // 1014 là PDO::PGSQL_ATTR_SSL_MODE, 2 là PDO::PGSQL_AS_ONLY_IF_MISSING
+        ],
         ],
 
         'sqlsrv' => [
