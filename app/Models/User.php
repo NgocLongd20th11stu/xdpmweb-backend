@@ -18,6 +18,8 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    // Thêm dòng này để chỉ định rõ tên bảng trong database
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',
