@@ -35,7 +35,7 @@ Route::post('register', [AccountController::class,'register']);
 Route::post('login', [AccountController::class,'authenticate']);
 Route::get('get-shipping-user', [FrontShippingController::class,'getShipping']);
 
-
+// ==================User Route=======================================
 
 Route::group(['middleware' => ['auth:sanctum','checkUserRole']], function(){
     Route::post('save-order', [OrderController::class,'saveOrder']);
@@ -47,14 +47,10 @@ Route::group(['middleware' => ['auth:sanctum','checkUserRole']], function(){
     Route::post('vnpay-payment', [CheckoutController::class,'vnpay']);
     Route::post('vnpay-verify', [CheckoutController::class, 'vnpayVerify']);
 });
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
 
 
 
 // ==================Admin Route=======================================
-
 
 
 Route::group(['middleware' => ['auth:sanctum', 'checkAdminRole']], function(){
